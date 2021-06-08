@@ -1,0 +1,89 @@
+№1
+
+consol.log;
+let a = 0;
+while (a <= 100) {
+     let check = true;
+     for (let b = 1; b < a; b++){                 
+        if (a === 100) {
+        check = false;
+        break;
+                }
+            }
+    if (check) console.log(a);
+    a++;
+        }
+
+№2
+
+consol.log
+var basket = [
+{ 
+ var phone1 = {
+  product: "phone4",
+  made by: "banana",
+  model: "Uphone",
+  year: 2019,
+  screen size: "17cm",
+  price: getNumber(70, 160)
+}
+},
+{ 
+ var phone2 = {
+  product: "phone2",
+  made by: "susang",
+  model: "Susano Full D3",
+  year: 2017,
+  screen size: "15cm",
+  price: getNumber(40, 110)
+}
+},
+  var phone3 = {
+   made by: "Xio",
+   model: "Xioni",
+   year: 2021,
+   screen size: "19cm",
+   price: getNumber(20, 80)
+}
+},
+  var phone4 = {
+   made by: "Bigfirm",
+   model: "Firm1",
+   year: 2089,
+   min screen size: "10cm",
+   max screen size: "300cm",
+   price: getNumber(50, 100)
+}
+}
+];
+let basketCost = 0;
+for (let phone of basket){
+   basketCost += phone.model;
+   console.log("Стоимость " + phone.model + " товара: " + phone.price);       
+}
+
+console.log("Стоимость товаров корзины: " + basketCost + " у.е.");
+
+
+№3
+console.log;
+  function countBasketCost(basket) {
+      let comBasketCost = 0;
+      for (let phone of basket){
+        comBasketCost += phone.price;
+        }
+        return comBasketCost;
+}
+
+console.log("Стоимость товаров корзины: " + countBasketCost(basket) + " у.е.");
+
+№4 
+for (let a = 0; a < 10; console.log(a++)) {}
+
+
+
+
+
+
+
+
