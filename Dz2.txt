@@ -1,0 +1,32 @@
+№1
+console.log();
+
+var max = 999;
+var object = {
+число: +prompt("Введите число от 0 до 999: "),
+units:0,
+tens:0,
+hundreds:0,
+};
+
+if (object.number < 10){
+object.number = object.units
+}else if (object.number <= 999){
+object.units = Math.floor(digit.number % 10);
+object.tens = Math.floor(digit.number / 10 % 10);
+object.hundreds = Math.floor(digit.number / 100 % 10);
+}else {
+object.number = 0||object.number > 999;
+console.log(`Число вне диапазона`);
+}
+console.log(object);
+
+
+
+
+
+
+
+
+
+
