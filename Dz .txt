@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог</title>
+    <--![if gte IE6]>
+    <link rel="stylesheet" href="../style.css"> </--![if>
+     </head>
+    
+<body class="back">
+    <div class="container"> <img class="img" src="../img/logo.jpeg" alt="logo">
+        <div class="header">
+           <div id="card"></div>
+            <ul class="menu">
+                <li><a href="../index.html">Главная</a></li>
+                <li><a href="../Contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <h1 class="ccc">Каталог</h1>
+    <main>
+    <div class="sd">
+        <h2 class="ccc">Samsung Galaxy A50</h2>
+        <a href="Samsung%20Galaxy.html"><img src="../img/Samsung%20Galaxy%20A50.jpg" alt="Samsung Galaxy A50" width="500" height="270"></a>
+        <br>
+        <p class="emme">Данная модель телефона представляет собой сбалансированные технические характеристики и&nbsp;полезные функции,которые имеют при себе современные смартфоны.Его плюсы&nbsp;&mdash; стиль и&nbsp;практичность,присущие каждому смартфону из&nbsp;этой серии.</p> <a href="Samsung%20Galaxy.html">Подробное описание</a></div>
+    <br>
+    <h2 class="ccc">Apple Iphone XR</h2>
+    <a href="Iphone%20XR.html"><img src="../img/100023876028b0.jpg" alt="Apple Iphone XR" width="524" height="425"></a>
+    <p class="emme">Apple iPhone XR&nbsp;&mdash; новое поколение телефонов от&nbsp;Apple. Мощный процессор, материалы премиум-класса и&nbsp;последние разработки в&nbsp;области искусственного интеллекта делают его идеальным помощником.</p> <a href="Iphone%20XR.html">Подробное описание</a>
+    <hr>
+    </main>
+    <div id="popup">
+        <button id="closePopupBtn">&#x2715;</button>
+        <selection id="selection-1">
+              <h2>Корзина</h2>
+              <div id="card-details">
+                  
+              </div>    
+        </selection>
+        <selection id="selection-2">
+           <h2>Укажите адрес доставки</h2> 
+        </selection>
+        <selection id="selection-3">
+           <h2>Отзыв</h2> 
+        </selection>
+        <button id="NextsectionBth">Далее</button>
+    </div>
+    <div class="footer">
+        <p>Все права защищены &copy;</p>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+
+</html>	
+	
+	
+	
+	
+	
+	
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	
+	const main = document.querySelector(`main`);
+const card = document.querySelector(`#card`);
+const popup = document.querySelector(`#popup`);
+const closePopupBtn = document.querySelector(`#closePopupBtn`);
+const NextsectionBth = document.querySelector(`#NextsectionBth`);
+const cardDetails = document.querySelector(`card-details`);
+
+let currentCardSection = 1;
+
+let goods = [];
+let card = [];
+
+function getIDCounter(params) {
+    let lastID = 1;
+    
+    return function() {
+        return lastID++
+    }
+}
+
+const idCounter = getIDCounter();
+const cardIdCounter = getIDCounter();
+
+function Good(title, price, img, desc){
+    this.id = idCounter();
+    this.title = title;
+    this.price = price;
+    this.img = img;
+    this.desk =desk;
+}
+
+function GoodCard({ title,price }) {
+    this.id = cardIdCounter();
+    this.title = title;
+    this.price = price;  
+}
+
+function drawMain() {
+    for (let good of goods){
+        drawGoodCard(good);
+    }  
+}
+
+function drawGoodCart({title, price, img, desc, id}){
+    const html = `<div class="good">
+    <h2>{title}</h2>
+    <img src="img">
+    <p>{desc}</p>
+    <p class="price">{price}</p>
+    <button data-id="{id}"></button>
+   </div>`
+   
+    main.insertAdjacentHTML(`beforeend`, html);
+  }
