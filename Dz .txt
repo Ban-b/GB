@@ -108,6 +108,91 @@ function drawMain() {
     }  
 }
 
+function. drawCardItem({title, price, id }){
+    const html = `<div class="cardItem">
+      <h2>${tittle}<h2>
+      <p class="price">${price}</p>
+      <button data-id="${id}">Удалить</button>
+</div>`;
+    
+    $cardDetails.insertAdjacentHTML('beforeend', html);
+}
+
+function drawCard() {
+    card.textContent = '';
+    if(card.length > 0){
+        $card.insertAdjacentHTML('beforeend', `<p>В корзине ${card.length} техники, на ${getCardPrice} рублей.`)
+    } else {
+        $card.insertAdjacentHTML('beforeend',`Тут ничего нет.`);
+    }
+    
+    $cardDetails.textContent = ``;
+    card.forEach(function (good){
+        drawCardItem(good);
+    })
+}
+
+function addToCard(id) {
+    const good = goods.find(function (good){
+        return good.id === id;
+    });
+    
+    card.push(new GoodCard(good)
+}
+              
+function removeFromCard(id){
+        const goodIndex = card.findIndex(function (good){
+            return good.id === id;
+        });
+        
+        card.splice(goodIndex, 1);
+    }
+    
+    function getCardPrice(){
+        return card.reduce(function (acc, good) {
+            return acc + good.price;
+        }, 0)
+    }
+
+    function fetchGoods(){
+        goods = [
+            new Good(`iphone`, 1000, `img/100023876028b0.jpg`, `Описание товара "Очень дорогой телефон"`),
+            new Good(`samsung`, 400, `img/Samsung%20Galaxy%20A50.jpg`, `Описание товара "Не такой уж и дорогой телефон"`)
+        ]
+    }
+    
+    function showPopup() {
+        $popup.style.display = `block`
+    }
+    
+    function hidePopup() {
+        $popup.style.display = `none`
+    }
+
+    function nextSection() {
+        document.querySelector(`#section-` + currentCardSection).style.display = "none";
+        currentCardSection = currentCardSection < 3 ? currentCardSection + 1 : 1;
+        document.querySelector(`#section-` + currentCardSection).style.display = "block";
+    }
+    
+    $main.addEventListener(`click`, function (e) {
+        addToCard(Number(e.target.getAttribute(`data-id`)));
+        drawCard();
+    })
+    
+    $cardDetails.addEventListener(`click` function (e){
+        removeFromCard(Number(e.target.getAttribute(`data-id`)));
+        drawCard();
+    })
+    
+    $card.addEventListener(`click`, showPopup);
+    $closePopupBtn.addEventListener(`click`, hidePopup);
+    $NextsectionBth.addEventListener(`click`, nextSection);
+    
+    fetchGoods();
+    drawMain();
+    drawCard();
+
 function drawGoodCart({title, price, img, desc, id}){
     const html = `<div class="good">
     <h2>{title}</h2>
