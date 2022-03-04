@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func fib(n int) *big.Int {
+func fib(n int) int {
 	fn := make(map[int]*big.Int)
 
 	for i := 0; i <= n; i++ {
